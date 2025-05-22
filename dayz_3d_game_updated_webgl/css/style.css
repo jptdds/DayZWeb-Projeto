@@ -1,0 +1,289 @@
+/* Estilos gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* Container do jogo */
+#game-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Tela de carregamento */
+#loading-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loading-container {
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+}
+
+.loading-container h1 {
+    font-size: 48px;
+    margin-bottom: 30px;
+    color: #ff3e3e;
+    text-shadow: 0 0 10px rgba(255, 62, 62, 0.7);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background-color: #ff3e3e;
+    transition: width 0.3s ease;
+}
+
+#loading-text {
+    font-size: 16px;
+    color: #ccc;
+}
+
+/* Telas de menu */
+.menu-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 900;
+}
+
+.menu-container {
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    background-color: rgba(20, 20, 20, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    border: 1px solid #444;
+}
+
+.menu-container h1 {
+    font-size: 42px;
+    margin-bottom: 30px;
+    color: #ff3e3e;
+    text-shadow: 0 0 10px rgba(255, 62, 62, 0.5);
+}
+
+.menu-container button {
+    background-color: #ff3e3e;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    margin: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu-container button:hover {
+    background-color: #e62e2e;
+}
+
+#instructions {
+    margin-top: 30px;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#instructions h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+#instructions p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+/* Menu de opções */
+.option-group {
+    margin: 15px 0;
+    text-align: left;
+}
+
+.option-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.option-group select,
+.option-group input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+}
+
+/* HUD do jogo */
+#hud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 800;
+}
+
+#health-bar {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 200px;
+}
+
+.bar-label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.bar-container {
+    width: 100%;
+    height: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #555;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    width: 100%;
+    background-color: #ff3e3e;
+    transition: width 0.3s ease;
+}
+
+#ammo-display {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#weapon-selector {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.weapon-slot {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #555;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #ccc;
+}
+
+.weapon-slot.active {
+    border-color: #ff3e3e;
+    background-color: rgba(255, 62, 62, 0.3);
+}
+
+#minimap {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+
+#interaction-prompt {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+}
+
+/* Utilitários */
+.hidden {
+    display: none !important;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .menu-container {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    .menu-container h1 {
+        font-size: 32px;
+    }
+    
+    #health-bar {
+        width: 150px;
+    }
+    
+    #minimap {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .weapon-slot {
+        width: 50px;
+        height: 50px;
+    }
+}

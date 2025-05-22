@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survival City 3D - Jogo Estilo GTA com Zumbis</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="loading-screen">
+        <div class="loading-container">
+            <h1>Survival City 3D</h1>
+            <div class="progress-bar">
+                <div class="progress-fill" id="loading-progress"></div>
+            </div>
+            <p id="loading-text">Carregando recursos...</p>
+        </div>
+    </div>
+
+    <div id="game-menu" class="menu-screen">
+        <div class="menu-container">
+            <h1>Survival City 3D</h1>
+            <button id="start-game">Iniciar Jogo</button>
+            <button id="options">Opções</button>
+            <div id="instructions">
+                <h2>Instruções</h2>
+                <p>WASD: Mover personagem</p>
+                <p>Mouse: Olhar ao redor</p>
+                <p>Clique Esquerdo: Atirar</p>
+                <p>R: Recarregar</p>
+                <p>E: Interagir/Entrar em veículos</p>
+                <p>F: Sair de veículos</p>
+                <p>1-4: Selecionar armas</p>
+                <p>Shift: Correr</p>
+                <p>Espaço: Pular</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="hud" class="hidden">
+        <div id="health-bar">
+            <div class="bar-label">Saúde</div>
+            <div class="bar-container">
+                <div class="bar-fill" id="health-fill"></div>
+            </div>
+        </div>
+        
+        <div id="ammo-display">
+            <span id="current-ammo">30</span>/<span id="max-ammo">30</span>
+        </div>
+        
+        <div id="weapon-selector">
+            <div class="weapon-slot" data-slot="1"></div>
+            <div class="weapon-slot" data-slot="2"></div>
+            <div class="weapon-slot" data-slot="3"></div>
+            <div class="weapon-slot" data-slot="4"></div>
+        </div>
+        
+        <div id="minimap"></div>
+        
+        <div id="interaction-prompt" class="hidden">
+            Pressione E para interagir
+        </div>
+    </div>
+
+    <div id="game-over" class="menu-screen hidden">
+        <div class="menu-container">
+            <h1>Você Morreu</h1>
+            <p>Sobreviveu por <span id="survival-time">0</span> segundos</p>
+            <button id="restart-game">Tentar Novamente</button>
+            <button id="return-menu">Voltar ao Menu</button>
+        </div>
+    </div>
+
+    <div id="options-menu" class="menu-screen hidden">
+        <div class="menu-container">
+            <h1>Opções</h1>
+            <div class="option-group">
+                <label for="graphics-quality">Qualidade Gráfica:</label>
+                <select id="graphics-quality">
+                    <option value="low">Baixa</option>
+                    <option value="medium" selected>Média</option>
+                    <option value="high">Alta</option>
+                </select>
+            </div>
+            <div class="option-group">
+                <label for="mouse-sensitivity">Sensibilidade do Mouse:</label>
+                <input type="range" id="mouse-sensitivity" min="1" max="10" value="5">
+            </div>
+            <div class="option-group">
+                <label for="sound-volume">Volume:</label>
+                <input type="range" id="sound-volume" min="0" max="100" value="70">
+            </div>
+            <button id="save-options">Salvar</button>
+            <button id="cancel-options">Cancelar</button>
+        </div>
+    </div>
+
+    <div id="game-container"></div>
+
+    <!-- Three.js e bibliotecas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FBXLoader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/libs/stats.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/libs/ammo.wasm.js"></script>
+
+    <!-- Scripts do jogo -->
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/loaders.js"></script>
+    <script src="js/physics.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/weapons.js"></script>
+    <script src="js/vehicles.js"></script>
+    <script src="js/zombies.js"></script>
+    <script src="js/world.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
